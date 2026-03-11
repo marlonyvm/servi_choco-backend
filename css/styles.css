@@ -33,7 +33,7 @@ nav.scrolled { background:rgba(5,16,10,.92); backdrop-filter:blur(20px); border-
 .nav-cta { background:var(--dorado) !important; color:var(--negro) !important; padding:.5rem 1.2rem; border-radius:4px; font-weight:500 !important; }
 .nav-cta:hover { background:var(--dorado-claro) !important; }
 
-#hero { min-height:100vh; display:flex; align-items:center; justify-content:center; position:relative; overflow:hidden; background:radial-gradient(ellipse 80% 70% at 50% 100%,#163b22 0%,#05100a 60%); }
+#hero { min-height:100vh; display:flex; align-items:center; justify-content:center; position:relative; overflow:hidden; background:radial-gradient(ellipse 80% 70% at 50% 100%,#163b22 0%,#05100a 60%), url('../imagenes/IMG_20230424_160206.jpg') center/cover no-repeat; }
 .hero-bg-lines { position:absolute; inset:0; background-image:linear-gradient(to right,rgba(200,168,75,.04) 1px,transparent 1px),linear-gradient(to bottom,rgba(200,168,75,.04) 1px,transparent 1px); background-size:80px 80px; }
 .hero-glow { position:absolute; width:600px; height:600px; background:radial-gradient(circle,rgba(42,138,62,.2) 0%,transparent 70%); bottom:-100px; left:50%; transform:translateX(-50%); animation:pulse 4s ease-in-out infinite; }
 @keyframes pulse { 0%,100%{transform:translateX(-50%) scale(1);opacity:.6} 50%{transform:translateX(-50%) scale(1.15);opacity:1} }
