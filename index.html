@@ -1,420 +1,509 @@
 <!DOCTYPE html>
 <html lang="es">
-  <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SERVI_CHOCO — Guardianes del Territorio</title>
-    <link rel="icon" href="imagenes/favicon.png" type="image/png">
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=DM+Sans:wght@300;400;500&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="css/styles.css"/>
-  </head>
-  <body> 
-    <div class="cursor" id="cursor"></div>
-    <div class="cursor-ring" id="cursor-ring"></div>
-    <nav id="navbar">
-      <img src="imagenes/logo.jpeg" alt="Logo Servi Chocó" style="height:60px; width:auto; display:block; border-radius: 50%;">
-      <ul class="nav-links">
-        <li><a href="#nosotros">Nosotros</a></li>
-        <li><a href="#destinos">Destinos</a></li>
-        <li><a href="#mapa">Mapa</a></li>
-        <li><a href="#pago">Pago</a></li>
-        <li><a href="login.html">Login</a></li>
-        <li><a href="#reservar" class="nav-cta">Reservar</a></li>
-      </ul>
-      <!-- REPRODUCTOR MUSICAL -->
-      <div class="music-player" id="music-player">
-        <button class="music-btn" id="music-toggle" onclick="toggleMusic()" title="Reproducir música">
-          <span class="music-icon" id="music-icon">&#9654;</span>
-        </button>
-        <div class="music-info" id="music-info">
-          <div class="music-bars" id="music-bars">
-            <span></span><span></span><span></span><span></span>
-          </div>
-          <span class="music-name" id="music-name">Sonidos del Chocó</span>
-          <div class="music-controls">
-            <button onclick="prevSong()" title="Anterior">&#8249;</button>
-            <button onclick="nextSong()" title="Siguiente">&#8250;</button>
-          </div>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SERVI_CHOCO — Guardianes del Territorio</title>
+  <link rel="icon" href="imagenes/favicon.png" type="image/png">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=DM+Sans:wght@300;400;500&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css"/> 
+</head>
+<body> 
+  <div class="cursor" id="cursor"></div>
+  <div class="cursor-ring" id="cursor-ring"></div>
+  <nav id="navbar">
+    <img src="imagenes/logo.jpeg" alt="Logo Servi Chocó" style="height:60px; width:auto; display:block; border-radius: 50%;">
+    <ul class="nav-links">
+      <li><a href="#nosotros">Nosotros</a></li>
+      <li><a href="#destinos">Destinos</a></li>
+      <li><a href="#mapa">Mapa</a></li>
+      <li><a href="#pago">Pago</a></li>
+      <li><a href="login.html">Login</a></li>
+      <li><a href="#reservar" class="nav-cta">Reservar</a></li>
+    </ul>
+    <!-- REPRODUCTOR MUSICAL -->
+     <div class="music-player" id="music-player">
+      <button class="music-btn" id="music-toggle" onclick="toggleMusic()" title="Reproducir música">
+        <span class="music-icon" id="music-icon">&#9654;</span>
+      </button>
+      <div class="music-info" id="music-info">
+        <div class="music-bars" id="music-bars">
+          <span></span><span></span><span></span><span></span>
+        </div>
+        <span class="music-name" id="music-name">Sonidos del Chocó</span>
+        <div class="music-controls">
+          <button onclick="prevSong()" title="Anterior">&#8249;</button>
+          <button onclick="nextSong()" title="Siguiente">&#8250;</button>
         </div>
       </div>
-      <div id="yt-container" style="position:fixed;top:-9999px;left:-9999px;width:1px;height:1px;overflow:hidden;pointer-events:none;">
-        <div id="yt-player"></div>
-      </div>
-    </nav>
+    </div>
+    <div id="yt-container" style="position:fixed;top:-9999px;left:-9999px;width:1px;height:1px;overflow:hidden;pointer-events:none;">
+      <div id="yt-player"></div>
+    </div>
+  </nav>
 
-    <section id="hero">
-      <div class="hero-bg-lines"></div>
-      <div class="hero-glow"></div>
-      <div class="hero-content">
-        <div class="hero-eyebrow">Guardianes del Territorio · Chocó, Colombia</div>
-        <h1 class="hero-title">
-          Ríos que fluyen
-          <span class="line-italic">selvas que sanan</span>
-          <span class="line-small">Turismo regenerativo comunitario del Pacífico</span>
-        </h1>
-        <p class="hero-sub">Experiencias únicas lideradas por jóvenes para la restauración ecológica del departamento del Chocó.</p>
-        <div class="hero-btns">
-          <a href="#reservar" class="btn-oro">Cotizar experiencia</a>
-          <a href="#destinos" class="btn-outline">Explorar destinos</a>
+  <section id="hero">
+    <div class="hero-bg-lines"></div>
+    <div class="hero-glow"></div>
+    <div class="hero-content">
+      <div class="hero-eyebrow">Guardianes del Territorio · Chocó, Colombia</div>
+      <h1 class="hero-title">
+        Ríos que fluyen
+        <span class="line-italic">selvas que sanan</span>
+        <span class="line-small">Turismo regenerativo comunitario del Pacífico</span>
+      </h1>
+      <p class="hero-sub">Experiencias únicas lideradas por jóvenes para la restauración ecológica del departamento del Chocó.</p>
+      <div class="hero-btns">
+        <a href="#reservar" class="btn-oro">Cotizar experiencia</a>
+        <a href="#destinos" class="btn-outline">Explorar destinos</a>
+      </div>
+    </div>
+  </section>
+  
+  <div class="stats-band reveal">
+    <div class="stat-cell"><span class="stat-num" data-target="150">0</span><span class="stat-label">Jóvenes empleados</span></div>
+    <div class="stat-cell"><span class="stat-num" data-target="12">0</span><span class="stat-label">Cuencas protegidas</span></div>
+    <div class="stat-cell"><span class="stat-num" data-target="4500">0</span><span class="stat-label">Árboles sembrados</span></div>
+    <div class="stat-cell"><span class="stat-num" data-target="8">0</span><span class="stat-label">Años de impacto</span></div>
+  </div>
+
+  <section id="nosotros" class="section">
+    <div class="container">
+      <div class="nosotros-grid">
+        <div class="nosotros-text reveal">
+          <div class="section-label">01 — Quiénes somos</div>
+          <h2 class="section-title">Comunidad que<br><em>transforma</em> territorio</h2>
+          <p>Somos una plataforma de servicios turísticos que promueve el desarrollo local y el empoderamiento de las comunidades ribereñas del Chocó, el departamento más biodiverso de Colombia.</p>
+          <p>Vinculamos a la población juvenil como actor principal del cambio, convirtiendo el turismo regenerativo en una herramienta de protección ambiental y económica.</p>
+          <a href="#destinos" class="btn-oro" style="margin-top:1rem;">Vivir experiencias →</a>
+        </div>
+        <div class="reveal">
+          <div class="nosotros-card-grid">
+            <div class="n-card tall"><span class="n-card-icon">🌊</span><h3>Ríos Sagrados</h3><p>El Atrato, el San Juan y Baudó, son las arterias vitales del Chocó. Los protegemos a través del turismo responsable y comunitario.</p></div>
+            <div class="n-card"><span class="n-card-icon">🌿</span><h3>Selva Viva</h3><p>Biodiversidad única. Guías locales que conocen cada especie.</p></div>
+            <div class="n-card"><span class="n-card-icon">🥁</span><h3>Cultura Afro</h3><p>Chirimía, marimba y tradiciones ancestrales como experiencia viva.</p></div>
+          </div>
         </div>
       </div>
-    </section>
+    </div>
+  </section>
+
+  <section id="destinos" class="section">
+    <div class="container">
+      <div class="destinos-intro reveal">
+        <div><div class="section-label">02 — Experiencias</div><h2 class="section-title">Destinos del<br><em>Pacífico</em></h2></div>
+        <p>Desde las ballenas de Nuquí hasta las cascadas de Tutunendo, cada rincón del Chocó es una historia que merece ser vivida.</p>
+      </div>
+      <div class="destinos-grid" id="destinos-grid"></div>
+    </div>
+  </section>
+
+  <section id="reservar" class="section">
+    <div class="container">
+      <div class="reservar-grid">
+        <div class="reservar-intro reveal">
+          <div class="section-label">03 — Reservas</div>
+          <h2 class="section-title">Planea tu<br><em>aventura</em></h2>
+          <p>Cotiza tu viaje al instante. Selecciona destino, fechas y número de viajeros para obtener un presupuesto detallado.</p>
+          <div class="reservar-features">
+            <div class="res-feat"><div class="res-feat-icon">🎯</div><div class="res-feat-text"><h4>Guías comunitarios certificados</h4><p>Jóvenes del territorio que conocen cada sendero</p></div></div>
+            <div class="res-feat"><div class="res-feat-icon">🍃</div><div class="res-feat-text"><h4>Todo incluido</h4><p>Transporte fluvial, alimentación y hospedaje comunitario</p></div></div>
+            <div class="res-feat"><div class="res-feat-icon">♻️</div><div class="res-feat-text"><h4>Impacto regenerativo</h4><p>El 30% va directo a restauración de cuencas</p></div></div>
+          </div>
+        </div>
+        <div class="booking-form reveal">
+          <h3>Cotiza tu viaje</h3>
+          <p class="form-sub">Obtén precio en segundos · Sin compromiso</p>
+          <div class="form-field"><label>🌿 Destino</label>
+            <select id="f-destino">
+              <option value="">Selecciona un destino...</option>
+              <option value="Nuquí">🐋 Nuquí — Ballenas & Surf</option>
+              <option value="Bahía Solano">🐬 Bahía Solano — Buceo</option>
+              <option value="Tutunendo">💧 Tutunendo — Cascadas</option>
+              <option value="Bajo Baudó">🌿 Bajo Baudó — Emberá</option>
+              <option value="Istmina">🎭 Istmina — Cultura Afro</option>
+              <option value="Quibdó">🏙️ Quibdó — Capital</option>
+              <option value="Acandí">🐢 Acandí — Caribe</option>
+              <option value="Riosucio">🏞️ Riosucio — Los Katíos</option>
+              <option value="Pilizá">🐢 Pilizá - Pizarro</option>
+              <option value="Sivirú">🐢 Sivirú - pizarro</option>
+            </select>
+          </div>
+          <div class="form-row">
+            <div class="form-field"><label>📅 Llegada</label><input type="date" id="f-llegada"></div>
+            <div class="form-field"><label>📅 Salida</label><input type="date" id="f-salida"></div>
+          </div>
+          <div class="form-row">
+            <div class="form-field"><label>👥 Viajeros</label>
+              <select id="f-viajeros"><option value="1">1 persona</option><option value="2" selected>2 personas</option><option value="3">3 personas</option><option value="4">4 personas</option><option value="5">5+ personas</option></select>
+            </div>
+            <div class="form-field"><label>🎒 Experiencia</label>
+              <select id="f-tipo"><option value="estandar">Estándar</option><option value="premium">Premium</option><option value="aventura">Aventura</option></select>
+            </div>
+          </div>
+          <button class="btn-reservar" onclick="cotizar()">Calcular cotización →</button>
+          <div class="form-secure">🔒 Reserva segura · Sin cargos ocultos</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="mapa" class="section">
+    <div class="container">
+      <div class="mapa-header reveal">
+        <div class="section-label">04 — Territorio</div>
+        <h2 class="section-title">Mapa del <em>Chocó</em></h2>
+        <p>Explora los municipios y destinos turísticos del departamento. Haz clic en cada marcador para más información.</p>
+      </div>
+      <div class="mapa-layout reveal">
+        <div class="mapa-sidebar"><h4>📍 Destinos</h4><div id="mapa-list"></div></div>
+        <div id="choco-map"></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="pago" class="section">
+    <div class="container">
+      <div class="pago-grid">
+        <div class="pago-intro reveal">
+          <div class="section-label">05 — Pagos</div>
+          <h2 class="section-title">Paga con<br><em>total seguridad</em></h2>
+          <p>Aceptamos pagos a través de PSE (débito bancario) y tarjetas crédito/débito. Todas las transacciones están protegidas con cifrado SSL de 256 bits.</p>
+          <div class="sec-badges">
+            <div class="sec-badge">🔒 <strong>SSL 256-bit</strong></div>
+            <div class="sec-badge">🏦 <strong>PSE</strong> ACH Colombia</div>
+            <div class="sec-badge">💳 <strong>Visa / Mastercard</strong></div>
+          </div>
+        </div>
+        <div class="pago-opciones reveal">
+          <div class="pago-card">
+            <div class="pago-card-header"><h3>Pago por PSE</h3><span class="pse-pill">PSE</span></div>
+            <p>Débito directo desde tu cuenta bancaria colombiana. Compatible con todos los bancos.</p>
+            <button class="btn-pago" onclick="openModal('modal-pse')">🏦 Pagar con PSE</button>
+          </div>
+          <div class="pago-card">
+            <div class="pago-card-header"><h3>Tarjeta crédito / débito</h3><span style="font-size:1.4rem;">💳</span></div>
+            <p>Paga con Visa o Mastercard en hasta 12 cuotas sin intereses.</p>
+            <button class="btn-pago outline" onclick="openModal('modal-tarjeta')">💳 Pagar con Tarjeta</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="testimonios" class="section">
+    <div class="container">
+      <div class="reveal"><div class="section-label">06 — Voces</div><h2 class="section-title">Del <em>territorio</em></h2></div>
+      <div class="testi-layout">
+        <div class="testi-card reveal">
+          <div class="testi-quote">"</div>
+          <p class="testi-text">A través de SERVI_CHOCO, los jóvenes de Tutunendo no solo somos guías, somos los guardianes de nuestra propia agua. El turismo nos dio una razón para quedarnos y proteger.</p>
+          <div class="testi-author"><strong>— Yeison Rivas</strong><span>GUÍA COMUNITARIO · TUTUNENDO</span></div>
+        </div>
+        <div class="testi-card reveal">
+          <div class="testi-quote">"</div>
+          <p class="testi-text">Nunca imaginé que un viaje al Chocó cambiaría mi perspectiva de vida. Los guías jóvenes tienen un conocimiento profundo de la selva que no encontrarás en ningún libro.</p>
+          <div class="testi-author"><strong>— Carolina Mejía</strong><span>VIAJERA · BOGOTÁ</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="aliados" class="section">
+    <div class="container">
+      <div class="aliados-inner reveal">
+        <div class="section-label" style="justify-content:center;">07 — Alianzas</div>
+        <h2 class="section-title" style="text-align:center;">Nuestros <em>aliados</em></h2>
+        <p>Trabajamos con organizaciones comprometidas con el territorio y las comunidades del Pacífico colombiano.</p>
+        <div class="aliados-grid">
+          <div class="aliado-item"><h3>Fundación Te Abrazo Colombia</h3><span>Desarrollo comunitario</span></div>
+          <div class="aliado-item"><h3>Comunidades del Pacífico</h3><span>Red de sabedores</span></div>
+          <div class="aliado-item"><h3>Hackathon Pacífico 2026</h3><span>Innovación social</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="footer-cta-bar">
+      <p>¿Listo para vivir el Chocó? <em>Reserva hoy.</em></p>
+      <a href="#reservar" class="btn-oro">Cotizar experiencia →</a>
+    </div>
+    <div class="footer-main-grid">
+      <div>
+        <span class="f-logo">SERVI<em>CHOCO</em></span>
+        <p class="f-desc">Turismo regenerativo y comunitario liderado por jóvenes en el corazón de la selva húmeda del Pacífico colombiano. Empoderando comunidades, restaurando cuencas.</p>
+        <div class="f-socials">
+          <a href="#" class="f-social">📷</a>
+          <a href="#" class="f-social">👤</a>
+          <a href="https://wa.me/573100000000" class="f-social">💬</a>
+          <a href="mailto:contacto@servichoco.com" class="f-social">✉️</a>
+        </div>
+      </div>
+      <div>
+        <span class="f-col-title">Navegar</span>
+        <ul class="f-list">
+          <li><a href="#hero">🏠 Inicio</a></li>
+          <li><a href="#nosotros">👥 Quiénes somos</a></li>
+          <li><a href="#destinos">🌿 Destinos</a></li>
+          <li><a href="#mapa">🗺️ Mapa del Chocó</a></li>
+          <li><a href="#reservar">📅 Cotizar y reservar</a></li>
+          <li><a href="#pago">💳 Pagar reserva</a></li>
+          <li><a href="#aliados">🤝 Aliados</a></li>
+        </ul>
+      </div>
+      <div>
+        <span class="f-col-title">Destinos</span>
+        <ul class="f-list">
+          <li><a href="#">🐋 Nuquí</a></li>
+          <li><a href="#">🐬 Bahía Solano</a></li>
+          <li><a href="#">💧 Tutunendo</a></li>
+          <li><a href="#">🌿 Bajo Baudó</a></li>
+          <li><a href="#">🎭 Istmina</a></li>
+          <li><a href="#">🐢 Acandí</a></li>
+          <li><a href="#">🏞️ Riosucio</a></li>
+        </ul>
+      </div>
+      <div>
+        <span class="f-col-title">Contacto</span>
+        <div class="f-contact-item"><span class="f-ico">📍</span><span>Quibdó, Chocó<br>Colombia</span></div>
+        <div class="f-contact-item"><span class="f-ico">📧</span><a href="mailto:contacto@servichoco.com">contacto@servichoco.com</a></div>
+        <div class="f-contact-item"><span class="f-ico">📱</span><a href="https://wa.me/573100000000">+57 310 000 0000</a></div>
+        <div class="f-contact-item"><span class="f-ico">⏰</span><span>Lun–Sáb 8am–6pm</span></div>
+        <a href="https://wa.me/573100000000" class="f-wa-btn">💬 Hablar con un guía</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2026 <strong>SERVI_CHOCO</strong> — Hackathon Pacífico. Todos los derechos reservados.</p>
+      <div class="f-bottom-links">
+        <a href="#">Privacidad</a>
+        <a href="#">Términos</a>
+        <a href="#">Cookies</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- MODALES -->
+  <div class="overlay" id="modal-cotizacion">
+    <div class="modal">
+      <button class="modal-close" onclick="closeModal('modal-cotizacion')">✕</button>
+      <h3>Tu <em>Cotización</em></h3>
+      <p class="m-sub">Resumen detallado de tu experiencia SERVI_CHOCO</p>
+      <div id="cotizacion-body"></div>
+      <div class="total-row"><span>Total estimado</span><strong id="cotizacion-total">COP $0</strong></div>
+      <p class="modal-note">* Incluye guía comunitario, alimentación típica y transporte fluvial. El 30% va a restauración ambiental.</p>
+      <button class="btn-oro" onclick="irAPago()" style="width:100%;text-align:center;">Proceder al pago →</button>
+    </div>
+  </div>
+
+  <div class="overlay" id="modal-pse">
+    <div class="modal modal-white">
+      <button class="modal-close" onclick="closeModal('modal-pse')">✕</button>
+      <h3 style="color:#1a3a1a;">Pago por <em style="color:#2d7a3a;">PSE</em></h3>
+      <p class="m-sub">Débito directo desde tu cuenta bancaria</p>
+      <div class="pf"><label>Tipo de persona</label><select><option>Persona Natural</option><option>Persona Jurídica</option></select></div>
+      <div class="pf"><label>Número de documento</label><input type="text" placeholder="Ej: 1000123456"></div>
+      <div class="pf"><label>Correo electrónico</label><input type="email" placeholder="tu@correo.com"></div>
+      <p style="font-size:.72rem;color:#607060;font-family:'DM Mono',monospace;letter-spacing:.1em;text-transform:uppercase;margin-bottom:.75rem;">Selecciona tu banco</p>
+      <div class="bank-grid">
+        <button class="bank-btn" onclick="selBank(this)">Bancolombia</button>
+        <button class="bank-btn" onclick="selBank(this)">Davivienda</button>
+        <button class="bank-btn" onclick="selBank(this)">Banco de Bogotá</button>
+        <button class="bank-btn" onclick="selBank(this)">BBVA</button>
+        <button class="bank-btn" onclick="selBank(this)">Nequi</button>
+        <button class="bank-btn" onclick="selBank(this)">Otro banco</button>
+      </div>
+      <button class="btn-pse-confirm" onclick="confirmarPSE()">Continuar con PSE →</button>
+      <p style="text-align:center;font-size:.68rem;color:#90a090;margin-top:.75rem;">Serás redirigido al portal seguro de tu banco</p>
+    </div>
+  </div>
+  
+  <div class="overlay" id="modal-tarjeta">
+    <div class="modal modal-white">
+      <button class="modal-close" onclick="closeModal('modal-tarjeta')">✕</button>
+      <h3 style="color:#1a3a1a;">Pago con <em style="color:#2d7a3a;">Tarjeta</em></h3>
+      <p class="m-sub">Visa · Mastercard · Débito y Crédito</p>
+      <div class="pf"><label>Número de tarjeta</label><input type="text" placeholder="0000 0000 0000 0000" maxlength="19" oninput="fmtCard(this)"></div>
+      <div class="pf"><label>Nombre en la tarjeta</label><input type="text" placeholder="Como aparece impreso"></div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:1rem;">
+        <div class="pf"><label>Vencimiento</label><input type="text" placeholder="MM/AA" maxlength="5"></div>
+        <div class="pf"><label>CVV</label><input type="text" placeholder="***" maxlength="4"></div>
+      </div>
+      <div class="pf"><label>Cuotas</label>
+        <select><option>1 cuota (sin intereses)</option><option>3 cuotas</option><option>6 cuotas</option><option>12 cuotas</option></select>
+      </div>
+      <button class="btn-pse-confirm" onclick="confirmarTarjeta()">🔒 Pagar ahora</button>
+    </div>
+  </div>
+
+  <!-- ASISTENTE IA -->
+  <div class="ai-widget">
+    <div class="ai-window" id="ai-window">
+      <div class="ai-head">
+        <div class="ai-avatar-box">🌿</div>
+        <div><div class="ai-n">Chocó Guide IA</div><div class="ai-s">● EN LÍNEA · GEMINI</div></div>
+        <button class="ai-head-close" onclick="toggleAI()">✕</button>
+      </div>
+      <div class="ai-msgs" id="ai-msgs">
+        <div class="ai-msg bot">¡Hola! 🌿 Soy tu guía virtual. Puedo ayudarte a elegir destino, planear tu itinerario y resolver todas tus dudas sobre el Chocó. ¿Empezamos?</div>
+      </div>
+      <div class="ai-chips">
+        <button class="ai-chip" onclick="chip(this)">¿Qué destinos hay?</button>
+        <button class="ai-chip" onclick="chip(this)">¿Cuánto cuesta?</button>
+        <button class="ai-chip" onclick="chip(this)">¿Cómo llego?</button>
+        <button class="ai-chip" onclick="chip(this)">¿Qué llevar?</button>
+      </div>
+      <div class="ai-inp-area">
+        <input class="ai-inp" id="ai-inp" placeholder="Pregunta sobre el Chocó..." onkeydown="if(event.key==='Enter')sendAI()">
+        <button class="ai-send" onclick="sendAI()">➤</button>
+      </div>
+      <div class="ai-foot">Potenciado por <span>Google Gemini</span></div>
+    </div>
+    <button class="ai-toggle" onclick="toggleAI()">🌿<div class="ai-dot"></div></button>
+  </div>
+  
+  <!-- MODAL DESTINO -->
+   <div class="dest-overlay" id="dest-overlay" onclick="closeDest(event)">
+    <div class="dest-modal" id="dest-modal">
+      <button class="dest-modal-close" onclick="closeDestModal()">✕</button>
+      <div class="dest-modal-hero">
+        <img id="dest-hero-img" src="" alt="" />
+        <div class="dest-modal-hero-overlay"></div>
+        <div class="dest-modal-badge" id="dest-badge">Destino</div>
+        <div class="dest-modal-title-area">
+          <h2 id="dest-modal-h2">Título</h2>
+          <div class="dest-modal-subtitle" id="dest-modal-sub">Subtítulo</div>
+        </div>
+      </div>
+
+      <div class="dest-modal-body">
+        <!-- Chips de info -->
+        <div class="dest-info-chips" id="dest-chips"></div>
+
+        <!-- Galería de fotos -->
+        <div class="dest-gallery" id="dest-gallery"></div>
+
+        <!-- Video -->
+        <div class="dest-video-section" id="dest-video-section">
+          <div class="dest-video-label">Video del destino</div>
+          <div class="dest-video-wrap">
+            <iframe id="dest-video-frame" src="" allowfullscreen loading="lazy"></iframe>
+          </div>
+        </div>
+
+        <!-- Texto descriptivo -->
+        <div class="dest-text-section">
+          <div class="dest-text-label">Sobre el destino</div>
+          <div class="dest-text-content" id="dest-text-content"></div>
+        </div>
+      </div>
+
+      <div class="dest-modal-footer">
+        <div class="dest-modal-price">
+          Desde <strong id="dest-modal-precio">COP $0</strong> <span>/ persona / noche</span>
+        </div>
+        <button class="btn-reservar-dest" id="dest-modal-cta">Reservar este destino →</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Lightbox -->
+  <div class="lightbox" id="lightbox" onclick="closeLightbox()">
+    <button class="lightbox-close" onclick="closeLightbox()">✕</button>
+    <img id="lightbox-img" src="" alt="" />
+  </div>
+  
+  
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  <script src="js/main.js" ></script>
+  <script>
+    // ===== REPRODUCTOR YOUTUBE =====
+    const canciones = [
+      { id: 'dXqP4QL82eY', nombre: 'Chocó Mix 1' },
+      { id: 'oeYMgEGAR98', nombre: 'Chocó Mix 2' },
+      { id: 'uNSH5Tj40sA', nombre: 'Chocó Mix 3' },
+      { id: 'BFO7Yc7QCr8', nombre: 'Chocó Mix 4' },
+    ];
     
-    <div class="stats-band reveal">
-      <div class="stat-cell"><span class="stat-num" data-target="150">0</span><span class="stat-label">Jóvenes empleados</span></div>
-      <div class="stat-cell"><span class="stat-num" data-target="12">0</span><span class="stat-label">Cuencas protegidas</span></div>
-      <div class="stat-cell"><span class="stat-num" data-target="4500">0</span><span class="stat-label">Árboles sembrados</span></div>
-      <div class="stat-cell"><span class="stat-num" data-target="8">0</span><span class="stat-label">Años de impacto</span></div>
-    </div>
-
-    <section id="nosotros" class="section">
-      <div class="container">
-        <div class="nosotros-grid">
-          <div class="nosotros-text reveal">
-            <div class="section-label">01 — Quiénes somos</div>
-            <h2 class="section-title">Comunidad que<br><em>transforma</em> territorio</h2>
-            <p>Somos una plataforma de servicios turísticos que promueve el desarrollo local y el empoderamiento de las comunidades ribereñas del Chocó, el departamento más biodiverso de Colombia.</p>
-            <p>Vinculamos a la población juvenil como actor principal del cambio, convirtiendo el turismo regenerativo en una herramienta de protección ambiental y económica.</p>
-            <a href="#destinos" class="btn-oro" style="margin-top:1rem;">Vivir experiencias →</a>
-          </div>
-          <div class="reveal">
-            <div class="nosotros-card-grid">
-              <div class="n-card tall"><span class="n-card-icon">🌊</span><h3>Ríos Sagrados</h3><p>El Atrato, el San Juan y Baudó, son las arterias vitales del Chocó. Los protegemos a través del turismo responsable y comunitario.</p></div>
-              <div class="n-card"><span class="n-card-icon">🌿</span><h3>Selva Viva</h3><p>Biodiversidad única. Guías locales que conocen cada especie.</p></div>
-              <div class="n-card"><span class="n-card-icon">🥁</span><h3>Cultura Afro</h3><p>Chirimía, marimba y tradiciones ancestrales como experiencia viva.</p></div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section id="destinos" class="section">
-      <div class="container">
-        <div class="destinos-intro reveal">
-          <div><div class="section-label">02 — Experiencias</div><h2 class="section-title">Destinos del<br><em>Pacífico</em></h2></div>
-          <p>Desde las ballenas de Nuquí hasta las cascadas de Tutunendo, cada rincón del Chocó es una historia que merece ser vivida.</p>
-        </div>
-        <div class="destinos-grid" id="destinos-grid"></div>
-      </div>
-    </section>
-
-    <section id="reservar" class="section">
-      <div class="container">
-        <div class="reservar-grid">
-          <div class="reservar-intro reveal">
-            <div class="section-label">03 — Reservas</div>
-            <h2 class="section-title">Planea tu<br><em>aventura</em></h2>
-            <p>Cotiza tu viaje al instante. Selecciona destino, fechas y número de viajeros para obtener un presupuesto detallado.</p>
-            <div class="reservar-features">
-              <div class="res-feat"><div class="res-feat-icon">🎯</div><div class="res-feat-text"><h4>Guías comunitarios certificados</h4><p>Jóvenes del territorio que conocen cada sendero</p></div></div>
-              <div class="res-feat"><div class="res-feat-icon">🍃</div><div class="res-feat-text"><h4>Todo incluido</h4><p>Transporte fluvial, alimentación y hospedaje comunitario</p></div></div>
-              <div class="res-feat"><div class="res-feat-icon">♻️</div><div class="res-feat-text"><h4>Impacto regenerativo</h4><p>El 30% va directo a restauración de cuencas</p></div></div>
-            </div>
-          </div>
-          <div class="booking-form reveal">
-            <h3>Cotiza tu viaje</h3>
-            <p class="form-sub">Obtén precio en segundos · Sin compromiso</p>
-            <div class="form-field"><label>🌿 Destino</label>
-              <select id="f-destino">
-                <option value="">Selecciona un destino...</option>
-                <option value="Nuquí">🐋 Nuquí — Ballenas & Surf</option>
-                <option value="Bahía Solano">🐬 Bahía Solano — Buceo</option>
-                <option value="Tutunendo">💧 Tutunendo — Cascadas</option>
-                <option value="Bajo Baudó">🌿 Bajo Baudó — Emberá</option>
-                <option value="Istmina">🎭 Istmina — Cultura Afro</option>
-                <option value="Quibdó">🏙️ Quibdó — Capital</option>
-                <option value="Acandí">🐢 Acandí — Caribe</option>
-                <option value="Riosucio">🏞️ Riosucio — Los Katíos</option>
-                <option value="Pilizá">🐢 Pilizá - Pizarro</option>
-                <option value="Sivirú">🐢 Sivirú - pizarro</option>
-              </select>
-            </div>
-            <div class="form-row">
-              <div class="form-field"><label>📅 Llegada</label><input type="date" id="f-llegada"></div>
-              <div class="form-field"><label>📅 Salida</label><input type="date" id="f-salida"></div>
-            </div>
-            <div class="form-row">
-              <div class="form-field"><label>👥 Viajeros</label>
-                <select id="f-viajeros"><option value="1">1 persona</option><option value="2" selected>2 personas</option><option value="3">3 personas</option><option value="4">4 personas</option><option value="5">5+ personas</option></select>
-              </div>
-              <div class="form-field"><label>🎒 Experiencia</label>
-                <select id="f-tipo"><option value="estandar">Estándar</option><option value="premium">Premium</option><option value="aventura">Aventura</option></select>
-              </div>
-            </div>
-            <button class="btn-reservar" onclick="cotizar()">Calcular cotización →</button>
-            <div class="form-secure">🔒 Reserva segura · Sin cargos ocultos</div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section id="mapa" class="section">
-      <div class="container">
-        <div class="mapa-header reveal">
-          <div class="section-label">04 — Territorio</div>
-          <h2 class="section-title">Mapa del <em>Chocó</em></h2>
-          <p>Explora los municipios y destinos turísticos del departamento. Haz clic en cada marcador para más información.</p>
-        </div>
-        <div class="mapa-layout reveal">
-          <div class="mapa-sidebar"><h4>📍 Destinos</h4><div id="mapa-list"></div></div>
-          <div id="choco-map"></div>
-        </div>
-      </div>
-    </section>
-
-    <section id="pago" class="section">
-      <div class="container">
-        <div class="pago-grid">
-          <div class="pago-intro reveal">
-            <div class="section-label">05 — Pagos</div>
-            <h2 class="section-title">Paga con<br><em>total seguridad</em></h2>
-            <p>Aceptamos pagos a través de PSE (débito bancario) y tarjetas crédito/débito. Todas las transacciones están protegidas con cifrado SSL de 256 bits.</p>
-            <div class="sec-badges">
-              <div class="sec-badge">🔒 <strong>SSL 256-bit</strong></div>
-              <div class="sec-badge">🏦 <strong>PSE</strong> ACH Colombia</div>
-              <div class="sec-badge">💳 <strong>Visa / Mastercard</strong></div>
-            </div>
-          </div>
-          <div class="pago-opciones reveal">
-            <div class="pago-card">
-              <div class="pago-card-header"><h3>Pago por PSE</h3><span class="pse-pill">PSE</span></div>
-              <p>Débito directo desde tu cuenta bancaria colombiana. Compatible con todos los bancos.</p>
-              <button class="btn-pago" onclick="openModal('modal-pse')">🏦 Pagar con PSE</button>
-            </div>
-            <div class="pago-card">
-              <div class="pago-card-header"><h3>Tarjeta crédito / débito</h3><span style="font-size:1.4rem;">💳</span></div>
-              <p>Paga con Visa o Mastercard en hasta 12 cuotas sin intereses.</p>
-              <button class="btn-pago outline" onclick="openModal('modal-tarjeta')">💳 Pagar con Tarjeta</button>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section id="testimonios" class="section">
-      <div class="container">
-        <div class="reveal"><div class="section-label">06 — Voces</div><h2 class="section-title">Del <em>territorio</em></h2></div>
-        <div class="testi-layout">
-          <div class="testi-card reveal">
-            <div class="testi-quote">"</div>
-            <p class="testi-text">A través de SERVI_CHOCO, los jóvenes de Tutunendo no solo somos guías, somos los guardianes de nuestra propia agua. El turismo nos dio una razón para quedarnos y proteger.</p>
-            <div class="testi-author"><strong>— Yeison Rivas</strong><span>GUÍA COMUNITARIO · TUTUNENDO</span></div>
-          </div>
-          <div class="testi-card reveal">
-            <div class="testi-quote">"</div>
-            <p class="testi-text">Nunca imaginé que un viaje al Chocó cambiaría mi perspectiva de vida. Los guías jóvenes tienen un conocimiento profundo de la selva que no encontrarás en ningún libro.</p>
-            <div class="testi-author"><strong>— Carolina Mejía</strong><span>VIAJERA · BOGOTÁ</span></div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section id="aliados" class="section">
-      <div class="container">
-        <div class="aliados-inner reveal">
-          <div class="section-label" style="justify-content:center;">07 — Alianzas</div>
-          <h2 class="section-title" style="text-align:center;">Nuestros <em>aliados</em></h2>
-          <p>Trabajamos con organizaciones comprometidas con el territorio y las comunidades del Pacífico colombiano.</p>
-          <div class="aliados-grid">
-            <div class="aliado-item"><h3>Fundación Te Abrazo Colombia</h3><span>Desarrollo comunitario</span></div>
-            <div class="aliado-item"><h3>Comunidades del Pacífico</h3><span>Red de sabedores</span></div>
-            <div class="aliado-item"><h3>Hackathon Pacífico 2026</h3><span>Innovación social</span></div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <footer>
-      <div class="footer-cta-bar">
-        <p>¿Listo para vivir el Chocó? <em>Reserva hoy.</em></p>
-        <a href="#reservar" class="btn-oro">Cotizar experiencia →</a>
-      </div>
-      <div class="footer-main-grid">
-        <div>
-          <span class="f-logo">SERVI<em>CHOCO</em></span>
-          <p class="f-desc">Turismo regenerativo y comunitario liderado por jóvenes en el corazón de la selva húmeda del Pacífico colombiano. Empoderando comunidades, restaurando cuencas.</p>
-          <div class="f-socials">
-            <a href="#" class="f-social">📷</a>
-            <a href="#" class="f-social">👤</a>
-            <a href="https://wa.me/573100000000" class="f-social">💬</a>
-            <a href="mailto:contacto@servichoco.com" class="f-social">✉️</a>
-          </div>
-        </div>
-        <div>
-          <span class="f-col-title">Navegar</span>
-          <ul class="f-list">
-            <li><a href="#hero">🏠 Inicio</a></li>
-            <li><a href="#nosotros">👥 Quiénes somos</a></li>
-            <li><a href="#destinos">🌿 Destinos</a></li>
-            <li><a href="#mapa">🗺️ Mapa del Chocó</a></li>
-            <li><a href="#reservar">📅 Cotizar y reservar</a></li>
-            <li><a href="#pago">💳 Pagar reserva</a></li>
-            <li><a href="#aliados">🤝 Aliados</a></li>
-          </ul>
-        </div>
-        <div>
-          <span class="f-col-title">Destinos</span>
-          <ul class="f-list">
-            <li><a href="#">🐋 Nuquí</a></li>
-            <li><a href="#">🐬 Bahía Solano</a></li>
-            <li><a href="#">💧 Tutunendo</a></li>
-            <li><a href="#">🌿 Bajo Baudó</a></li>
-            <li><a href="#">🎭 Istmina</a></li>
-            <li><a href="#">🐢 Acandí</a></li>
-            <li><a href="#">🏞️ Riosucio</a></li>
-          </ul>
-        </div>
-        <div>
-          <span class="f-col-title">Contacto</span>
-          <div class="f-contact-item"><span class="f-ico">📍</span><span>Quibdó, Chocó<br>Colombia</span></div>
-          <div class="f-contact-item"><span class="f-ico">📧</span><a href="mailto:contacto@servichoco.com">contacto@servichoco.com</a></div>
-          <div class="f-contact-item"><span class="f-ico">📱</span><a href="https://wa.me/573100000000">+57 310 000 0000</a></div>
-          <div class="f-contact-item"><span class="f-ico">⏰</span><span>Lun–Sáb 8am–6pm</span></div>
-          <a href="https://wa.me/573100000000" class="f-wa-btn">💬 Hablar con un guía</a>
-        </div>
-      </div>
-      <div class="footer-bottom">
-        <p>© 2026 <strong>SERVI_CHOCO</strong> — Hackathon Pacífico. Todos los derechos reservados.</p>
-        <div class="f-bottom-links">
-          <a href="#">Privacidad</a>
-          <a href="#">Términos</a>
-          <a href="#">Cookies</a>
-        </div>
-      </div>
-    </footer>
-
-    <!-- MODALES -->
-    <div class="overlay" id="modal-cotizacion">
-      <div class="modal">
-        <button class="modal-close" onclick="closeModal('modal-cotizacion')">✕</button>
-        <h3>Tu <em>Cotización</em></h3>
-        <p class="m-sub">Resumen detallado de tu experiencia SERVI_CHOCO</p>
-        <div id="cotizacion-body"></div>
-        <div class="total-row"><span>Total estimado</span><strong id="cotizacion-total">COP $0</strong></div>
-        <p class="modal-note">* Incluye guía comunitario, alimentación típica y transporte fluvial. El 30% va a restauración ambiental.</p>
-        <button class="btn-oro" onclick="irAPago()" style="width:100%;text-align:center;">Proceder al pago →</button>
-      </div>
-    </div>
-
-    <div class="overlay" id="modal-pse">
-      <div class="modal modal-white">
-        <button class="modal-close" onclick="closeModal('modal-pse')">✕</button>
-        <h3 style="color:#1a3a1a;">Pago por <em style="color:#2d7a3a;">PSE</em></h3>
-        <p class="m-sub">Débito directo desde tu cuenta bancaria</p>
-        <div class="pf"><label>Tipo de persona</label><select><option>Persona Natural</option><option>Persona Jurídica</option></select></div>
-        <div class="pf"><label>Número de documento</label><input type="text" placeholder="Ej: 1000123456"></div>
-        <div class="pf"><label>Correo electrónico</label><input type="email" placeholder="tu@correo.com"></div>
-        <p style="font-size:.72rem;color:#607060;font-family:'DM Mono',monospace;letter-spacing:.1em;text-transform:uppercase;margin-bottom:.75rem;">Selecciona tu banco</p>
-        <div class="bank-grid">
-          <button class="bank-btn" onclick="selBank(this)">Bancolombia</button>
-          <button class="bank-btn" onclick="selBank(this)">Davivienda</button>
-          <button class="bank-btn" onclick="selBank(this)">Banco de Bogotá</button>
-          <button class="bank-btn" onclick="selBank(this)">BBVA</button>
-          <button class="bank-btn" onclick="selBank(this)">Nequi</button>
-          <button class="bank-btn" onclick="selBank(this)">Otro banco</button>
-        </div>
-        <button class="btn-pse-confirm" onclick="confirmarPSE()">Continuar con PSE →</button>
-        <p style="text-align:center;font-size:.68rem;color:#90a090;margin-top:.75rem;">Serás redirigido al portal seguro de tu banco</p>
-      </div>
-    </div>
+    let ytPlayer = null;
+    let currentSong = 0;
+    let isPlaying = false;
+    let ytReady = false;
     
-    <div class="overlay" id="modal-tarjeta">
-      <div class="modal modal-white">
-        <button class="modal-close" onclick="closeModal('modal-tarjeta')">✕</button>
-        <h3 style="color:#1a3a1a;">Pago con <em style="color:#2d7a3a;">Tarjeta</em></h3>
-        <p class="m-sub">Visa · Mastercard · Débito y Crédito</p>
-        <div class="pf"><label>Número de tarjeta</label><input type="text" placeholder="0000 0000 0000 0000" maxlength="19" oninput="fmtCard(this)"></div>
-        <div class="pf"><label>Nombre en la tarjeta</label><input type="text" placeholder="Como aparece impreso"></div>
-        <div style="display:grid;grid-template-columns:1fr 1fr;gap:1rem;">
-          <div class="pf"><label>Vencimiento</label><input type="text" placeholder="MM/AA" maxlength="5"></div>
-          <div class="pf"><label>CVV</label><input type="text" placeholder="***" maxlength="4"></div>
-        </div>
-        <div class="pf"><label>Cuotas</label>
-          <select><option>1 cuota (sin intereses)</option><option>3 cuotas</option><option>6 cuotas</option><option>12 cuotas</option></select>
-        </div>
-        <button class="btn-pse-confirm" onclick="confirmarTarjeta()">🔒 Pagar ahora</button>
-      </div>
-    </div>
+    // Cargar API de YouTube
+    function loadYTApi() {
+      if (document.getElementById('yt-api-script')) return;
+      const tag = document.createElement('script');
+      tag.id = 'yt-api-script';
+      tag.src = 'https://www.youtube.com/iframe_api';
+      document.head.appendChild(tag);
+    }
 
-    <!-- ASISTENTE IA -->
-    <div class="ai-widget">
-      <div class="ai-window" id="ai-window">
-        <div class="ai-head">
-          <div class="ai-avatar-box">🌿</div>
-          <div><div class="ai-n">Chocó Guide IA</div><div class="ai-s">● EN LÍNEA · GEMINI</div></div>
-          <button class="ai-head-close" onclick="toggleAI()">✕</button>
-        </div>
-        <div class="ai-msgs" id="ai-msgs">
-          <div class="ai-msg bot">¡Hola! 🌿 Soy tu guía virtual. Puedo ayudarte a elegir destino, planear tu itinerario y resolver todas tus dudas sobre el Chocó. ¿Empezamos?</div>
-        </div>
-        <div class="ai-chips">
-          <button class="ai-chip" onclick="chip(this)">¿Qué destinos hay?</button>
-          <button class="ai-chip" onclick="chip(this)">¿Cuánto cuesta?</button>
-          <button class="ai-chip" onclick="chip(this)">¿Cómo llego?</button>
-          <button class="ai-chip" onclick="chip(this)">¿Qué llevar?</button>
-        </div>
-        <div class="ai-inp-area">
-          <input class="ai-inp" id="ai-inp" placeholder="Pregunta sobre el Chocó..." onkeydown="if(event.key==='Enter')sendAI()">
-          <button class="ai-send" onclick="sendAI()">➤</button>
-        </div>
-        <div class="ai-foot">Potenciado por <span>Google Gemini</span></div>
-      </div>
-      <button class="ai-toggle" onclick="toggleAI()">🌿<div class="ai-dot"></div></button>
-    </div>
+    window.onYouTubeIframeAPIReady = function() {
+      ytReady = true;
+      ytPlayer = new YT.Player('yt-player', {
+        height: '1', width: '1',
+        videoId: canciones[currentSong].id,
+        playerVars: { autoplay: 0, controls: 0, loop: 0 },
+        events: {
+          onStateChange: onPlayerStateChange
+        }
+      });
+    };
 
-    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
-    
-    
-    <!-- MODAL DESTINO -->
-    <div class="dest-overlay" id="dest-overlay" onclick="closeDest(event)">
-      <div class="dest-modal" id="dest-modal">
-        <button class="dest-modal-close" onclick="closeDestModal()">✕</button>
-        <div class="dest-modal-hero">
-          <img id="dest-hero-img" src="" alt="" />
-          <div class="dest-modal-hero-overlay"></div>
-          <div class="dest-modal-badge" id="dest-badge">Destino</div>
-          <div class="dest-modal-title-area">
-            <h2 id="dest-modal-h2">Título</h2>
-            <div class="dest-modal-subtitle" id="dest-modal-sub">Subtítulo</div>
-          </div>
-        </div>
+    function onPlayerStateChange(event) {
+      if (event.data === YT.PlayerState.ENDED) {
+        nextSong();
+      }
+    }
 
-        <div class="dest-modal-body">
-          <!-- Chips de info -->
-          <div class="dest-info-chips" id="dest-chips"></div>
+    function toggleMusic() {
+      if (!ytReady) {
+        loadYTApi();
+        setTimeout(toggleMusic, 1200);
+        return;
+      }
+      if (!isPlaying) {
+        ytPlayer.loadVideoById(canciones[currentSong].id);
+        ytPlayer.playVideo();
+        isPlaying = true;
+        document.getElementById('music-toggle').classList.add('playing');
+        document.getElementById('music-icon').innerHTML = '&#9646;&#9646;';
+        document.getElementById('music-info').classList.add('visible');
+        document.getElementById('music-bars').classList.add('active');
+        document.getElementById('music-name').textContent = canciones[currentSong].nombre;
+      } else {
+        ytPlayer.pauseVideo();
+        isPlaying = false;
+        document.getElementById('music-toggle').classList.remove('playing');
+        document.getElementById('music-icon').innerHTML = '&#9654;';
+        document.getElementById('music-bars').classList.remove('active');
+      }
+    }
 
-          <!-- Galería de fotos -->
-          <div class="dest-gallery" id="dest-gallery"></div>
+    function nextSong() {
+      currentSong = (currentSong + 1) % canciones.length;
+      if (isPlaying && ytReady) {
+        ytPlayer.loadVideoById(canciones[currentSong].id);
+        ytPlayer.playVideo();
+      }
+      document.getElementById('music-name').textContent = canciones[currentSong].nombre;
+    }
 
-          <!-- Video -->
-          <div class="dest-video-section" id="dest-video-section">
-            <div class="dest-video-label">Video del destino</div>
-            <div class="dest-video-wrap">
-              <iframe id="dest-video-frame" src="" allowfullscreen loading="lazy"></iframe>
-            </div>
-          </div>
+    function prevSong() {
+      currentSong = (currentSong - 1 + canciones.length) % canciones.length;
+      if (isPlaying && ytReady) {
+        ytPlayer.loadVideoById(canciones[currentSong].id);
+        ytPlayer.playVideo();
+      }
+      document.getElementById('music-name').textContent = canciones[currentSong].nombre;
+    }
 
-          <!-- Texto descriptivo -->
-          <div class="dest-text-section">
-            <div class="dest-text-label">Sobre el destino</div>
-            <div class="dest-text-content" id="dest-text-content"></div>
-          </div>
-        </div>
-
-        <div class="dest-modal-footer">
-          <div class="dest-modal-price">
-            Desde <strong id="dest-modal-precio">COP $0</strong> <span>/ persona / noche</span>
-          </div>
-          <button class="btn-reservar-dest" id="dest-modal-cta">Reservar este destino →</button>
-        </div>
-      </div>
-    </div>
-
-    <!-- Lightbox -->
-    <div class="lightbox" id="lightbox" onclick="closeLightbox()">
-      <button class="lightbox-close" onclick="closeLightbox()">✕</button>
-      <img id="lightbox-img" src="" alt="" />
-    </div>
-    <script src="js/js/main.js" defer></script>
-  </body>
+    // Pre-cargar la API al hacer scroll
+    window.addEventListener('scroll', function preLoad() {
+      loadYTApi();
+      window.removeEventListener('scroll', preLoad);
+    }, { once: true });
+  </script>
+</body>
 </html>
