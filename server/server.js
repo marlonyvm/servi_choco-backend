@@ -119,6 +119,18 @@ app.get("/destinos/:id", async (req,res)=>{
 
 });
 
+app.get("/estadisticas", async (req, res) => {
+  try {
+    const [rows] = await db.query(
+      "SELECT * FROM estadisticas ORDER BY orden"
+    );
+    res.json(rows);
+  } catch (err) {
+    console.error(err);
+    res.status(500).json({ error: "Error obteniendo estadísticas" });
+  }
+});
+
 app.get("/", (req, res) => {
   res.send("API ServiChocó funcionando 🚀");
 });
