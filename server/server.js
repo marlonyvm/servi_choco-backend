@@ -2,6 +2,8 @@ const PORT = process.env.PORT || 3000;
 const express = require("express");
 const mysql = require("mysql2/promise");
 const cors = require("cors");
+const bcrypt = require("bcryptjs");
+const jwt = require("jsonwebtoken");
 
 const app = express();
 app.use(cors());
@@ -119,6 +121,9 @@ app.get("/destinos/:id", async (req,res)=>{
 
 });
 
+//////////////////////////////
+///////Estadisticas //////////
+
 app.get("/estadisticas", async (req, res) => {
   try {
     const [rows] = await db.query(
@@ -133,6 +138,75 @@ app.get("/estadisticas", async (req, res) => {
 
 app.get("/", (req, res) => {
   res.send("API ServiChocó funcionando 🚀");
+});
+
+//////////////////////////////////////////////////
+////////////registro y login//////////////////////
+
+app.post("/api/auth/register", async (req, res) => {
+  const { name, email, password } = req.body;
+
+  try {
+    const [existing] = await db.query(
+      "SELECT * FROM users WHERE email = ?",
+      [email]
+    );
+
+    if (existing.length > 0) {
+      return res.status(400).json({ message: "Usuario ya existe" });
+    }
+
+    const hash = await bcrypt.hash(password, 10);
+
+    await db.query(
+      "INSERT INTO users (name, email, password) VALUES (?, ?, ?)",
+      [name, email, hash]
+    );
+
+    res.json({ message: "Usuario creado" });
+
+  } catch (err) {
+    console.error("Error real",err);
+    res.status(500).json({ message:err.message });
+  }
+});
+///////////////////////////////////////////////////////////
+app.post("/api/auth/login", async (req, res) => {
+  const { email, password } = req.body;
+
+  try {
+    const [rows] = await db.query(
+      "SELECT * FROM users WHERE email = ?",
+      [email]
+    );
+
+    if (rows.length === 0) {
+      return res.status(400).json({ message: "Usuario no existe" });
+    }
+
+    const user = rows[0];
+
+    const valid = await bcrypt.compare(password, user.password);
+
+    if (!valid) {
+      return res.status(400).json({ message: "Contraseña incorrecta" });
+    }
+
+    const token = jwt.sign(
+      { id: user.id },
+      "secret123",
+      { expiresIn: "1d" }
+    );
+
+    res.json({
+      token,
+      name: user.name
+    });
+
+  } catch (err) {
+    console.error(err);
+    res.status(500).json({ message: "Error en login" });
+  }
 });
 
 /* ===============================
